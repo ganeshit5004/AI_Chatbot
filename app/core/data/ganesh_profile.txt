@@ -1,0 +1,87 @@
+Ganesh S is an aspiring Generative AI Engineer with strong Python and FastAPI experience. He specializes in Prompt Engineering, RAG pipelines, vector embeddings, semantic search, and LLM agents with function calling. He has built real-world AI solutions including Google Contacts Sync APIs and an Election GPT assistant using Tamil OCR and structured JSON generation. He is passionate about creating scalable and reliable LLM-powered systems.
+
+Contact details:
+Phone: +91 8072009561
+Email: ganeshit5004@gmail.com
+
+LinkedIn: https://www.linkedin.com/in/ganesh-s26
+
+Portfolio: https://reactportfolio26102002.netlify.app
+
+Professional Experience
+
+Ganesh currently works at Populus Empowerment Network Pvt. Ltd., Chennai, India, from September 2024 to Present as a Software Developer and Data Analyst focusing on Python and Generative AI.
+
+His responsibilities include building LLM-assisted systems, developing FastAPI services, managing OAuth authentication, processing large datasets, and implementing retrieval-augmented generation pipelines.
+
+Google Contacts Import and Sync System
+
+Ganesh built an LLM-assisted contact management system using FastAPI and Python.
+He implemented OAuth 2.0 authentication to support multiple Gmail accounts.
+He developed APIs to import contacts from CSV files into Google Contacts using Google People API.
+He handled encoding issues, duplicate detection, and bulk JSON uploads.
+He created FastAPI endpoints to dynamically accept Gmail accounts and retrieve contact data.
+
+Election GPT – LLM with RAG and Tamil NLP
+
+Ganesh developed an LLM-powered election analytics assistant.
+He designed a RAG pipeline to query election results with structured JSON output.
+He implemented Tamil OCR using Tesseract and Camelot for table extraction from PDFs.
+He added hallucination guardrails and missing-data handling using NaN logic.
+He enabled semantic search across wards, candidates, voter statistics, and election results.
+He converted raw election documents into structured JSON for machine-learning-ready reporting.
+
+Internship Experience
+
+From January 2024 to August 2024, Ganesh worked as a Python Developer Intern at Populus Empowerment Network Pvt. Ltd.
+
+His responsibilities included data preprocessing, normalization, transformation, SQL Server database support, writing stored procedures and optimized queries, backend scripting using Python, automation of data workflows, debugging backend services, and maintaining clear documentation for team onboarding.
+
+Technical Skills
+
+Programming and Frameworks
+Python (Advanced), Shell Scripting (Basic), FastAPI, REST APIs, Prompt Engineering, RAG Pipeline Development.
+
+GenAI and LLM Tools
+LangChain, LlamaIndex, OpenAI API, Hugging Face, PEFT (Basic), Embeddings, Semantic Search, Function Calling, AI Agents.
+
+Data and Machine Learning Libraries
+Pandas, NumPy, Matplotlib, Scikit-learn, Statsmodels, XGBoost, LightGBM, Keras (Basic), LIME.
+
+Databases and Search
+SQL Server, MySQL, SQLite, Stored Procedures, Vector Databases including Chroma (Basic), FAISS (Basic), Pinecone (Basic).
+
+AI Processing
+Tamil OCR using Tesseract Tamil Pack, Data Cleaning, Feature Engineering, Document and Table Extraction using Camelot.
+
+Development and Deployment Tools
+Git, GitHub, VS Code, Jupyter Notebook, Postman, Postman Collections, Render, Heroku, Netlify, Local server deployment, API hosting.
+
+Education
+
+Ganesh completed his Bachelor of Technology in Information Technology from SKP Engineering College between 2020 and 2024 with a CGPA of 8.35.
+
+He completed his 12th standard in Bio-Maths from SRGDS Matric Higher Secondary School in 2019-2020 with 73 percent.
+
+Projects
+
+INTELLIMED – Web-Based Multiple Disease Prediction System
+Built using React JS, Python, Machine Learning, and Explainable AI with LIME.
+Live link: https://intellimed.onrender.com/predict
+
+React Portfolio Website
+Link: https://reactportfolio26102002.netlify.app
+
+Python Learning Platform
+Link: https://simpli.app.link/bXfe9mcFfwb
+
+Certifications
+
+Data Science with Python: https://simpli.app.link/sIRF9iEwSwb
+
+SQL Certification: https://simpli.app.link/kOmA4oKwSwb
+
+Languages
+
+English – Read, Write, Speak
+Tamil – Read, Write, Speaks
