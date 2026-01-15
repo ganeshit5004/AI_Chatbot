@@ -85,3 +85,45 @@ Languages
 
 English – Read, Write, Speak
 Tamil – Read, Write, Speaks
+
+PROFESSIONAL EXPERIENCE
+
+Ganesh currently works at Populus Empowerment Network Pvt. Ltd., Chennai, India, as a Software Developer and Data Analyst (September 2024 – Present). His work focuses on Python backend development and Generative AI systems. He builds LLM-assisted services, manages OAuth authentication, processes large datasets, and designs RAG-based architectures for real-world applications.
+
+KEY PROJECTS
+
+GOOGLE CONTACTS IMPORT & SYNC SYSTEM
+Built an LLM-assisted contact management system using FastAPI and Python.
+Implemented OAuth 2.0 authentication for multiple Gmail accounts.
+Developed APIs to import contacts from CSV into Google People API.
+Handled encoding issues, duplicate detection, and bulk JSON uploads.
+Created dynamic FastAPI endpoints to manage Gmail onboarding and contact retrieval.
+
+ELECTION GPT – TAMIL OCR + RAG
+Developed a Tamil-language election analytics assistant.
+Extracted tables from PDFs using Tesseract and Camelot.
+Converted election PDFs into structured JSON datasets.
+Designed a RAG pipeline for querying wards, candidates, and voter statistics.
+Implemented hallucination guardrails and strict schema validation.
+
+ENGINEERING PRINCIPLES
+
+reat Generative AI as a software engineering system, not a chatbot demo.
+Never guess missing values – return “data not available” when required.
+Prefer schema-driven outputs over free-form text.
+Always include logging, monitoring, validation, and error handling.
+
+COMMUNICATION STYLE
+
+ Practical, engineering-first explanations.
+ Clear architecture reasoning and system-level thinking.
+ Avoid generic AI buzzwords.
+
+WEAKNESS PROFILE
+
+Previously over-focused on custom implementations instead of using frameworks.
+Now optimized by leveraging LangChain, LlamaIndex, and modular pipelines.
+
+LONG-TERM VISION
+
+Build scalable Indian-language AI systems for civic-tech and government-scale analytics platforms, focusing on trust, reliability, and real-world impact.

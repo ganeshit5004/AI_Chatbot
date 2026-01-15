@@ -8,7 +8,7 @@ from app.schemas.models import (
 from app.core.config import settings
 from typing import List, Dict
 from app.core.langchain_instance import langchain_manager
-
+from fastapi.responses import StreamingResponse
 
 router = APIRouter()
 
@@ -29,6 +29,25 @@ async def chat(request: ChatRequest):
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+    
+
+@router.post("/chat-stream/{chain_id}")
+async def chat_stream(chain_id: str, request: ChatRequest):
+
+    async def token_generator():
+        async for token in langchain_manager.chat_stream(chain_id, request.message):
+            yield token
+
+    return StreamingResponse(
+        token_generator(),
+        media_type="text/plain",
+        headers={
+            "Cache-Control": "no-cache",
+            "Transfer-Encoding": "chunked",
+            "X-Accel-Buffering": "no"
+        }
+    )
+
 
 
 @router.post("/chains/create")
