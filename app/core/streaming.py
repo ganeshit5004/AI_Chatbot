@@ -1,4 +1,4 @@
-from langchain.callbacks.base import BaseCallbackHandler
+from langchain_core.callbacks import BaseCallbackHandler
 import asyncio
 
 class TokenStreamHandler(BaseCallbackHandler):

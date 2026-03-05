@@ -1,12 +1,11 @@
-from langchain.chat_models import ChatOpenAI
-from langchain.memory import ConversationBufferMemory
-from langchain.chains import ConversationalRetrievalChain
-from langchain.prompts import PromptTemplate
-from openai import api_key
+from langchain_openai import ChatOpenAI
+from langchain_classic.memory import ConversationBufferMemory
+from langchain_classic.chains import ConversationalRetrievalChain
+from langchain_core.prompts import PromptTemplate
+
 from app.core.rag_agent import db
 from app.core.streaming import TokenStreamHandler
 import asyncio
-
 
 SYSTEM_PROMPT = """
 You are Ganesh Resume Assistant.
@@ -45,6 +44,14 @@ class LangChainManager:
 
 
     def create_chain(self, chain_id: str, llm=None):
+
+        if llm is None:
+            llm = ChatOpenAI(
+                openai_api_key=self.api_key,
+                model_name=self.model,
+                temperature=0.7
+            )
+
         prompt = PromptTemplate(
             input_variables=["context", "question", "chat_history"],
             template=SYSTEM_PROMPT
@@ -65,7 +72,9 @@ class LangChainManager:
 
         self.chains[chain_id] = chain
         self.memories[chain_id] = memory
+
         return chain
+
 
     async def chat_stream(self, chain_id: str, message: str):
 
