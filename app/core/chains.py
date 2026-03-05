@@ -5,13 +5,19 @@ from langchain_core.prompts import PromptTemplate
 
 from app.core.rag_agent import db
 from app.core.streaming import TokenStreamHandler
+
 import asyncio
+
 
 SYSTEM_PROMPT = """
 You are Ganesh Resume Assistant.
-Use ONLY the following context to answer.
-If the answer is not present in context, refer chat history.
-If still not found, say exactly: Data not available.
+
+Use ONLY the following context to answer the question.
+
+Rules:
+- If answer is present in context → answer clearly.
+- If answer is not present in context → check chat history.
+- If still not found → respond exactly with: Data not available.
 
 Chat History:
 {chat_history}
@@ -27,28 +33,31 @@ Answer:
 
 
 class LangChainManager:
+
     def __init__(self, api_key: str, model: str):
         self.api_key = api_key
         self.model = model
         self.chains = {}
         self.memories = {}
-    
+
+    # Streaming LLM
     def _get_streaming_llm(self, handler):
+
         return ChatOpenAI(
             openai_api_key=self.api_key,
-            model_name=self.model,
+            model=self.model,
             temperature=0.7,
             streaming=True,
             callbacks=[handler],
         )
 
-
+    # Create chain
     def create_chain(self, chain_id: str, llm=None):
 
         if llm is None:
             llm = ChatOpenAI(
                 openai_api_key=self.api_key,
-                model_name=self.model,
+                model=self.model,
                 temperature=0.7
             )
 
@@ -75,38 +84,51 @@ class LangChainManager:
 
         return chain
 
-
+    # Streaming chat
     async def chat_stream(self, chain_id: str, message: str):
 
-            handler = TokenStreamHandler()
-            llm = self._get_streaming_llm(handler)
+        handler = TokenStreamHandler()
+        llm = self._get_streaming_llm(handler)
 
-            chain = self.create_chain(chain_id, llm)
+        chain = self.create_chain(chain_id, llm)
 
-            async def run_chain():
-                await chain.acall({"question": message})
+        async def run_chain():
+            await chain.ainvoke({"question": message})
 
-            task = asyncio.create_task(run_chain())
+        task = asyncio.create_task(run_chain())
 
-            while True:
-                token = await handler.queue.get()
-                if token is None:
-                    break
-                yield token
+        while True:
 
-            await task
+            token = await handler.queue.get()
 
+            if token is None:
+                break
 
+            yield token
+
+        await task
+
+    # Get existing chain
     def get_chain(self, chain_id: str):
+
         if chain_id not in self.chains:
             return self.create_chain(chain_id)
+
         return self.chains[chain_id]
 
+    # Normal chat
     def chat(self, chain_id: str, message: str) -> str:
-        chain = self.get_chain(chain_id)
-        result = chain.invoke({"question": message})
-        return result["answer"]
 
+        chain = self.get_chain(chain_id)
+
+        result = chain.invoke({
+            "question": message
+        })
+
+        return result.get("answer", "")
+
+    # Clear conversation memory
     def clear_memory(self, chain_id: str):
+
         if chain_id in self.memories:
             self.memories[chain_id].clear()
