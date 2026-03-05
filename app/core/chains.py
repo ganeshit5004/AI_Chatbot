@@ -1,6 +1,6 @@
 from langchain_openai import ChatOpenAI
-from langchain_classic.memory import ConversationBufferMemory
-from langchain_classic.chains import ConversationalRetrievalChain
+from langchain.memory import ConversationBufferMemory
+from langchain.memory import ConversationBufferMemory
 from langchain_core.prompts import PromptTemplate
 
 from app.core.rag_agent import db
